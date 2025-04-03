@@ -3,14 +3,13 @@
 // How could you "clean" a bit this array and make it unified (without duplicates)?
 
 function getAllDirectors(moviesArray) {
-  // Using Set to remove duplicates
   return [...new Set(moviesArray.map((movie) => movie.director))];
 }
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 
 function howManyMovies(moviesArray) {
-  if (moviesArray.length === 0) return 0;
+  if (!moviesArray.length) return 0;
 
   return moviesArray.filter(
     (movie) =>
@@ -19,9 +18,7 @@ function howManyMovies(moviesArray) {
 }
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(moviesArray) {
-  if (moviesArray.length === 0) {
-    return 0;
-  }
+  if (!moviesArray.length) return 0;
 
   const totalScore = moviesArray.reduce((sum, movie) => {
     return movie.score ? sum + movie.score : sum;
@@ -36,7 +33,7 @@ function dramaMoviesScore(moviesArray) {
   const dramaMovies = moviesArray.filter((movie) =>
     movie.genre.includes("Drama")
   );
-  if (dramaMovies.length === 0) return 0;
+  if (!moviesArray.length) return 0;
   return scoresAverage(dramaMovies);
 }
 
